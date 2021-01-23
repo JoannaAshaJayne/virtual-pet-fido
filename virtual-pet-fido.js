@@ -1,9 +1,11 @@
 //Variables 
 
 const HUNGRY_ANIMAL = 5;
+const MINIMUM_HUNGER = 0;
 const UNFIT_ANIMAL = 3;
 const MAXIMUM_FITNESS = 10;
-const MINIMUM_HUNGER = 0;
+const MAXIMUM_HUNGER = 10;
+const MAXIMUM_AGE = 30;
 
 function Pet(name){
     this.name = name,
@@ -37,11 +39,11 @@ Pet.prototype = {
         if (this.hunger > (MINIMUM_HUNGER + 3)){
             return this.hunger -= 3;
         }
-        return this.hunger = MINIMUM_HUNGER
+            return this.hunger = MINIMUM_HUNGER
     }, 
 
     checkUp() {
-        if ((UNFIT_ANIMAL <= 3) && (HUNGRY_ANIMAL >= 5)) {
+        if (UNFIT_ANIMAL <= 3 && HUNGRY_ANIMAL >= 5) {
             return ('I am hungry AND I need a walk!')
         }   if (UNFIT_ANIMAL >= 3) {
             return ('I need a walk.')
@@ -53,14 +55,14 @@ Pet.prototype = {
     },
 
     isAlive() {
-        if ((this.fitness > 0 && this.hunger < 10 && this.age < 30)) {
+            if ((this.fitness > MAXIMUM_FITNESS && this.hunger < MAXIMUM_HUNGER && this.age < MAXIMUM_AGE)) {
             return ('false')
-    }   else if (!this.isAlive)
+    }       else if (!this.isAlive)
             throw new Error ('Your pet is no longer alive :(')
     },
 
     adoptBaby() {
-        this.baby.push(Meatball);
+        this.baby.push('Meatball');
     },
    
 };

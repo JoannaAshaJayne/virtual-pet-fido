@@ -85,12 +85,20 @@ describe('constructor', () => {
     expect(pet.hunger).toEqual(0);
   });
 
+  it('if fitness and hunger level are true, return I am hungry AND I need a walk!', () => {
+    const pet = new Pet('Fido');
+
+    pet.checkUp();
+
+    expect(pet.checkUp()).toBe('I am hungry AND I need a walk!');
+  });
+
   it('if fitness is 3 or less return I need a walk', () => {
     const pet = new Pet('Fido');
     
     pet.checkUp();
 
-    expect(pet.hunger).toBe('I need a walk.');
+    expect(pet.checkUp()).toBe('I need a walk.');
   });
 
   it('if hunger level is 5 or more return I am hungry.', () => {
@@ -101,15 +109,7 @@ describe('constructor', () => {
     expect(pet.hunger).toBe('I am hungry.');
   });
 
-  it('if fitness and hunger level are true, I am hungry AND I need a walk!', () => {
-    const pet = new Pet('Fido');
-
-    pet.checkUp();
-
-    expect(pet.checkUp()).toBe('I am hungry AND I need a walk!');
-  });
-
-  it('if fitness and hunger level are NOT true return, I feel great!', () => {
+  it('if fitness and hunger level are NOT true return I feel great!', () => {
     const pet = new Pet('Fido');
 
     pet.checkUp();
@@ -123,7 +123,7 @@ describe('constructor', () => {
 
     pet.isAlive();
 
-    expect(pet.isAlive).toBe('false');
+    expect(pet.isAlive()).toBe('false');
   });
 
   it('If the pets hunger is 10 or more, it should return false.', () => {
@@ -131,7 +131,7 @@ describe('constructor', () => {
 
     pet.isAlive();
 
-    expect(pet.isAlive).toBe('false');
+    expect(pet.isAlive()).toBe('false');
   });
 
   it('If the pets age is 30 or more, it should return false.', () => {
@@ -147,7 +147,7 @@ describe('constructor', () => {
 
     pet.isAlive();
 
-    expect(pet.isAlive).toBe('true');
+    expect(pet.isAlive()).toBe('true');
   });
 
   it('throws an error if the pet is not alive', () => {
@@ -155,7 +155,7 @@ describe('constructor', () => {
 
     pet.isAlive();
 
-    expect(pet.feed).toBe('Your pet is no longer alive :(');
+    expect(pet.isAlive()).toBe('Your pet is no longer alive :(');
   });
 
   it('Adopting a brand new baby', () => {
@@ -163,6 +163,6 @@ describe('constructor', () => {
 
     pet.adoptBaby();
 
-    expect(pet.adoptBaby).toBe('Meatball');
+    expect(pet.adoptBaby()).toBe('Meatball');
   });
 });    

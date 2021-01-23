@@ -56,14 +56,14 @@ describe('constructor', () => {
 
     pet.walkFit();
 
-    expect(pet.fitness).toEqual(14)
+    expect(pet.fitness).toEqual(10)
   });
 
   it('increases fitness to a maximum of 10.', () => {
     const pet = new Pet('Fido');
 
     pet.fitness = 8;
-    pet.walk();
+    pet.walkFit();
 
     expect(pet.fitness).toEqual(10);
   });
@@ -71,15 +71,16 @@ describe('constructor', () => {
   it('feedPet and hunger will decrease by 3.', () => {
     const pet = new Pet('Fido');
 
-    pet.feedPet;
+    pet.growUp();
+    pet.feedPet();
 
-    expect(pet.feedPet).toBe(-3);
+    expect(pet.hunger).toBe(2);
   });
 
   it('Fidos hunger level should never go below 0.', () => {
     const pet = new Pet('Fido');
 
-    pet.feedPet;
+    pet.feedPet();
 
     expect(pet.feedPet).toEqual(0);
   });
@@ -87,7 +88,7 @@ describe('constructor', () => {
   it('if fitness is 3 or less return I need a walk', () => {
     const pet = new Pet('Fido');
     
-    pet.checkUp;
+    pet.checkUp();
 
     expect(pet.checkUp).toBe('I need a walk.');
   });
@@ -95,7 +96,7 @@ describe('constructor', () => {
   it('if hunger level is 5 or more return I am hungry.', () => {
     const pet = new Pet('Fido');
 
-    pet.checkUp;
+    pet.checkUp();
 
     expect(pet.checkUp).toBe('I am hungry.');
   });
@@ -103,7 +104,7 @@ describe('constructor', () => {
   it('if fitness and hunger level are true, I am hungry AND I need a walk!', () => {
     const pet = new Pet('Fido');
 
-    pet.checkUp;
+    pet.checkUp();
 
     expect(pet.checkUp).toBe('I am hungry AND I need a walk!');
   });
@@ -111,7 +112,7 @@ describe('constructor', () => {
   it('if fitness and hunger level are NOT true return, I feel great!', () => {
     const pet = new Pet('Fido');
 
-    pet.checkUp;
+    pet.checkUp();
 
     expect(pet.checkUp).toBe('I feel great!');
   });
@@ -120,7 +121,7 @@ describe('constructor', () => {
   it('If the pets fitness is 0 or less, it should return false.', () => {
     const pet = new Pet('Fido');
 
-    pet.isAlive;
+    pet.isAlive();
 
     expect(pet.isAlive).toBe('false');
   });
@@ -128,7 +129,7 @@ describe('constructor', () => {
   it('If the pets hunger is 10 or more, it should return false.', () => {
     const pet = new Pet('Fido');
 
-    pet.isAlive;
+    pet.isAlive();
 
     expect(pet.isAlive).toBe('false');
   });
@@ -136,7 +137,7 @@ describe('constructor', () => {
   it('If the pets age is 30 or more, it should return false.', () => {
     const pet = new Pet('Fido');
 
-    pet.isAlive;
+    pet.isAlive();
 
     expect(pet.isAlive).toBe('false');
   });
@@ -144,7 +145,7 @@ describe('constructor', () => {
   it('Otherwise it should return true.', () => {
     const pet = new Pet('Fido');
 
-    pet.isAlive;
+    pet.isAlive();
 
     expect(pet.isAlive).toBe('true');
   });
@@ -152,7 +153,7 @@ describe('constructor', () => {
   it('throws an error if the pet is not alive', () => {
     const pet = new Pet('Fido');
 
-    pet.isAlive;
+    pet.isAlive();
 
     expect(pet.feed).toBe('Your pet is no longer alive :(');
   });
@@ -160,8 +161,8 @@ describe('constructor', () => {
   it('Adopting a brand new baby', () => {
     const pet = new Pet('Fido');
 
-    pet.adoptBaby;
+    pet.adoptBaby();
 
-    expect(pet.adoptBaby).toBe('baby');
+    expect(pet.adoptBaby).toBe('Meatball');
   });
 });    

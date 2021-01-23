@@ -11,7 +11,7 @@ function Pet(name){
     this.fitness = 10,
     this.walk = 4,
     this.isAlive = true,
-    this.baby =[]
+    this.baby = name
 };
 
 Pet.prototype = {
@@ -23,7 +23,13 @@ Pet.prototype = {
     },
 
     walkFit() {
-        this.fitness += 4;
+        if (this.fitness >= 7) {
+            this.fitness = MAXIMUM_FITNESS;
+        } else {
+            this.fitness += 4;
+        } 
+        
+        // if fitness is equal to 7 then the function should set fitness to 10
     },
 
     feedPet() {
@@ -31,14 +37,15 @@ Pet.prototype = {
     }, 
 
     checkUp() {
-        if (UNFIT_ANIMAL <= 3) {
-            return ('I need a walk.')
-    }   if (HUNGRY_ANIMAL >= 5) {
-            return ('I am hungry.')
-    }   if ((UNFIT_ANIMAL <= 3) && (HUNGRY_ANIMAL >=5)) {
+        if ((UNFIT_ANIMAL <= 3) && (HUNGRY_ANIMAL >= 5)) {
             return ('I am hungry AND I need a walk!')
-    }   else if ((!UNFIT_ANIMAL <= 3) && (!HUNGRY_ANIMAL >= 5)) {
+        }   if (UNFIT_ANIMAL >= 3) {
+            return ('I need a walk.')
+        }   if (HUNGRY_ANIMAL >=5) {
+            return ('I am hungry.')
+        }   else {
             return ('I feel great!')
+        }
     },
 
     isAlive() {
@@ -49,7 +56,7 @@ Pet.prototype = {
     },
 
     adoptBaby() {
-        this.baby.push(baby);
+        this.baby.push(Meatball);
     },
    
 };

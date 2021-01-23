@@ -3,6 +3,7 @@
 const HUNGRY_ANIMAL = 5;
 const UNFIT_ANIMAL = 3;
 const MAXIMUM_FITNESS = 10;
+const MINIMUM_HUNGER = 0;
 
 function Pet(name){
     this.name = name,
@@ -33,7 +34,10 @@ Pet.prototype = {
     },
 
     feedPet() {
-        this.hunger -= 3;
+        if (this.hunger > (MINIMUM_HUNGER + 3)){
+            return this.hunger -= 3;
+        }
+        return this.hunger = MINIMUM_HUNGER
     }, 
 
     checkUp() {
@@ -61,4 +65,4 @@ Pet.prototype = {
    
 };
 
-module.exports = { Pet, UNFIT_ANIMAL, HUNGRY_ANIMAL, MAXIMUM_FITNESS };
+module.exports = { Pet, UNFIT_ANIMAL, HUNGRY_ANIMAL, MAXIMUM_FITNESS, MINIMUM_HUNGER };

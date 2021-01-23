@@ -82,7 +82,7 @@ describe('constructor', () => {
 
     pet.feedPet();
 
-    expect(pet.feedPet).toEqual(0);
+    expect(pet.hunger).toEqual(0);
   });
 
   it('if fitness is 3 or less return I need a walk', () => {
@@ -90,7 +90,7 @@ describe('constructor', () => {
     
     pet.checkUp();
 
-    expect(pet.checkUp).toBe('I need a walk.');
+    expect(pet.hunger).toBe('I need a walk.');
   });
 
   it('if hunger level is 5 or more return I am hungry.', () => {
@@ -98,7 +98,7 @@ describe('constructor', () => {
 
     pet.checkUp();
 
-    expect(pet.checkUp).toBe('I am hungry.');
+    expect(pet.hunger).toBe('I am hungry.');
   });
 
   it('if fitness and hunger level are true, I am hungry AND I need a walk!', () => {
@@ -106,7 +106,7 @@ describe('constructor', () => {
 
     pet.checkUp();
 
-    expect(pet.checkUp).toBe('I am hungry AND I need a walk!');
+    expect(pet.checkUp()).toBe('I am hungry AND I need a walk!');
   });
 
   it('if fitness and hunger level are NOT true return, I feel great!', () => {
@@ -114,7 +114,7 @@ describe('constructor', () => {
 
     pet.checkUp();
 
-    expect(pet.checkUp).toBe('I feel great!');
+    expect(pet.checkUp()).toBe('I feel great!');
   });
 
 
